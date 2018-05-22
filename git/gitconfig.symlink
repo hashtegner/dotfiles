@@ -4,11 +4,27 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+      b = branch
+      ca = commit --amend
+      ci = commit -v
+      co = checkout
+      dw = diff --word-diff
+      fl = log -p
+      lg = log --oneline --decorate
+      sb = status -sb
+      sh = !git-sh
+      st = status
+      who = shortlog -s --
+      aa = add --all
+      ap = add --patch
+      pl = pull origin master
+      pm = push origin master
+      branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+      pf = push --force-with-lease
+      promote = !$ZSH/bin/git-promote
+      wtf     = !$ZSH/bin/git-wtf
+      rank-contributors = !$ZSH/bin/git-rank-contributors
+      count   = !git shortlog -sn
 [color]
         diff = auto
         status = auto
