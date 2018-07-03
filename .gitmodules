@@ -1,0 +1,3 @@
+[submodule "dotfiles-priv"]
+	path = dotfiles-priv
+	url = git@gitlab.com:alesshh/dotfiles-priv.git
