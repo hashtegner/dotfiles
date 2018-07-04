@@ -1,6 +1,8 @@
 _load_project_env() {
   if [ -f development.env ]; then
-    source development.env
+    cat development.env | while read line; do
+      export $line
+    done
   fi
 }
 
