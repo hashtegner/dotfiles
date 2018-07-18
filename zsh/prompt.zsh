@@ -10,9 +10,9 @@ else
 fi
 
 resetColor="%{$reset_color%}"
-baseColor="%{$fg_bold[green]%}"
+baseColor="%{$fg[green]%}"
 dirtyColor="%{$fg_bold[red]%}"
-cleanColor="%{$fg_bold[green]%}"
+cleanColor="%{$fg[green]%}"
 prefix="🦄"
 dir="$baseColor%~$resetColor"
 
