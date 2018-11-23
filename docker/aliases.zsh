@@ -1,5 +1,6 @@
 alias d='docker $*'
 alias d-c='docker-compose $*'
+alias mongod='docker run --rm --name mongo -p "27017:27017" mongo:latest'
 alias redisd='docker run --rm --name redis -p "6379:6379" redis:alpine'
 alias postgres10d='docker run --rm --name postgres -p "5432:5432" postgres:10-alpine'
 alias postgres9d='docker run --rm --name postgres -p "5432:5432" postgres:9-alpine'
