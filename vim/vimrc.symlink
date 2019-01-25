@@ -1,4 +1,64 @@
+set encoding=UTF-8
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype indent on "load filetype-specific indent files
+
+call plug#begin("~/.vim/plugged")
+
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf'
+Plug 'scrooloose/nerdtree'
+Plug 'Yggdroot/indentLine'
+Plug 'fatih/vim-go'
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+
+
+call plug#end()
+
+set number 
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+
+set macligatures
+set guioptions= " Remove scrollbars
+set guifont=Hasklig:h18
+set cursorline
+
+" window size
+set columns=215
+set lines=50
+
+set clipboard=unnamedplus
+set mouse=a
+
+
+map <D-p> :FZF<CR>
+map <D-\> :NERDTreeToggle<CR>
+
+if has("gui_macvim")
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+  " the right side. Ctrl-Shift-Tab goes the other way.
+  noremap <C-Tab> :tabnext<CR>
+  noremap <C-S-Tab> :tabprev<CR>
+
+  " Switch to specific tab numbers with Command-number
+  noremap <D-1> :tabn 1<CR>
+  noremap <D-2> :tabn 2<CR>
+  noremap <D-3> :tabn 3<CR>
+  noremap <D-4> :tabn 4<CR>
+  noremap <D-5> :tabn 5<CR>
+  noremap <D-6> :tabn 6<CR>
+  noremap <D-7> :tabn 7<CR>
+  noremap <D-8> :tabn 8<CR>
+  noremap <D-9> :tabn 9<CR>
+  " Command-0 goes to the last tab
+  noremap <D-0> :tablast<CR>
+endif
+
+set wildmenu
+
