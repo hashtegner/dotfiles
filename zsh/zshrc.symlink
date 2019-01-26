@@ -31,6 +31,8 @@ done
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit
 compinit
+autoload bashcompinit
+bashcompinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
