@@ -10,10 +10,10 @@ else
 fi
 
 resetColor="%{$reset_color%}"
-baseColor="%{$fg[blue]%}"
+baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg[red]%}"
 cleanColor="%{$fg[green]%}"
-prefix="🦄"
+prefix="$fg_bold[red]☭$resetColor"
 dir="$baseColor%~$resetColor"
 
 git_branch() {
@@ -61,4 +61,4 @@ directory_name() {
   echo "$baseColor%~$resetColor"
 }
 
-export PROMPT=$'\n🦄 $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$prefix $(directory_name) $(git_dirty)$(need_push)\n› '
