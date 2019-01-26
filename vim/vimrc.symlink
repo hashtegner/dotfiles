@@ -6,9 +6,30 @@ filetype indent on "load filetype-specific indent files
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'AlessandroYorba/Alduin'
 
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 set tabstop=2
 set softtabstop=2
@@ -26,16 +47,20 @@ set clipboard=unnamedplus
 set mouse=a
 set wildmenu
 
-set termguicolors 
+set termguicolors
 colorscheme alduin
 set background=dark
 
 set macligatures
-set guifont=Fira\ Code\:h15
+set guifont=Fira\ Code\:h14
+
+set noswapfile
 
 let NERDTreeMinimalUI = 1
 
+nmap <D-R> :so ~/.vimrc<CR>
 nmap <D-\> :NERDTreeToggle<CR>
+nmap <D-p> :FZF<CR>
 
 if has("gui_macvim")
   noremap <C-Tab> :tabnext<CR>
@@ -50,5 +75,4 @@ if has("gui_macvim")
   noremap <D-8> :tabn 8<CR>
   noremap <D-9> :tabn 9<CR>
   noremap <D-0> :tablast<CR>
-endif
-
+endif 
