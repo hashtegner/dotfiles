@@ -80,11 +80,6 @@
       wtf     = !$ZSH/bin/git-wtf
       rank-contributors = !$ZSH/bin/git-rank-contributors
       count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
 [core]
         excludesfile = ~/.gitignore
         editor = vim
