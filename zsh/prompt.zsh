@@ -13,8 +13,8 @@ resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg[red]%}"
 cleanColor="%{$fg[green]%}"
-prefix="$fg_bold[red]☭$resetColor"
-dir="$baseColor%~$resetColor"
+dirColor="%{$fg[white]%}"
+prefix="🦄$resetColor"
 
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
@@ -58,7 +58,7 @@ need_push () {
 }
 
 directory_name() {
-  echo "$baseColor%~$resetColor"
+  echo "$dirColor%~$resetColor"
 }
 
 export PROMPT=$'\n$prefix $(directory_name) $(git_dirty)$(need_push)\n› '
