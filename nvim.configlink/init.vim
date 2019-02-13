@@ -14,14 +14,16 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'wakatime/vim-wakatime'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 let g:go_fmt_command = "goimports"
 
+set guifont=Hasklig:h17
 set termguicolors
 set background=dark
 colorscheme nord
-let g:nord_comment_brightness = 13
+let g:nord_comment_brightness = 17
 let g:nord_italic_comments = 1
 let g:nord_cursor_line_number_background = 1
 
@@ -68,9 +70,13 @@ nnoremap <leader>0 :tablast<cr>
 
 set laststatus=2
 
-
 let g:deoplete#enable_at_startup = 1
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_fix_on_save = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+let g:fzf_action = {
+  \ 'return': 'tabe',
+  \ 'ctrl-j': 'split',
+  \ 'ctrl-k': 'vsplit' }
