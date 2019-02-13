@@ -1,3 +1,4 @@
+alias tmux='/usr/local/bin/tmux -u'
 alias ta='tmux attach -t'
 alias tad='tmux attach -d -t'
 alias ts='tmux new-session -s'
