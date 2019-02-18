@@ -61,6 +61,10 @@ set cursorline
 set mouse=a
 set laststatus=2
 
+" Use git
+set nobackup
+set noswapfile
+
 " keep only tabs at gui
 set guioptions=e
 
