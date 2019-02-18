@@ -82,7 +82,6 @@
       count   = !git shortlog -sn
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
 [apply]
         whitespace = nowarn
 [mergetool]
