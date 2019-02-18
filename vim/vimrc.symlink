@@ -27,8 +27,9 @@ Plug 'cohama/lexima.vim'
 " Comments
 Plug 'scrooloose/nerdcommenter'
 
-" Git status visualization
+" Git
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Theme
 Plug 'arcticicestudio/nord-vim'
