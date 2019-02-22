@@ -122,6 +122,11 @@ noremap <leader>0 :tablast<cr>
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-f> :Ag<space>
 
+" Move selection 1 line down or up
+vnoremap J :m '>+1gv=gv<cr>
+vnoremap K :m '<-2gv=gv<cr>
+
+" FZF
 let g:fzf_action = {
         \ 'return': 'tabe',
         \ 'ctrl-j': 'split',
