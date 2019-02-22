@@ -80,6 +80,8 @@ set shiftwidth=2
 " Nerdtree
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['.git']
 
 " Lint settings
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
