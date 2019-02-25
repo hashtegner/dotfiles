@@ -122,6 +122,9 @@ noremap <leader>0 :tablast<cr>
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-f> :Ag<space>
 
+" switch to last used buffer
+nnoremap <leader>; :e#<CR>
+
 " Move selection 1 line down or up
 vnoremap J :m '>+1gv=gv<cr>
 vnoremap K :m '<-2gv=gv<cr>
