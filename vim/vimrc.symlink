@@ -87,9 +87,6 @@ let g:ale_fixers['ruby'] = ['rubocop']
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
-" File explorer
-let g:netrw_liststyle = 3
-
 " Go settings
 let g:go_fmt_command = "goimports"
 
@@ -100,9 +97,8 @@ let g:deoplete#enable_at_startup = 1
 let mapleader=","
 
 let g:vaffle_show_hidden_fields = 1
-let g:vaffle_open_select_split_position = 'topleft'
 
-map <leader>\ :Vaffle<cr>:
+map <leader>\ :Vaffle %:h<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
