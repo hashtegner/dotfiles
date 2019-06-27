@@ -1,8 +1,10 @@
+syntax on
 call plug#begin('~/.vim/plugged')
 
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'cocopon/vaffle.vim'
 
 " Auto complete
 if has('nvim')
@@ -20,12 +22,14 @@ Plug 'mattn/emmet-vim'
 Plug 'SirVer/ultisnips'
 Plug 'zchee/deoplete-go'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
 " Lint
 Plug 'w0rp/ale'
 
 " Auto close pairs
 Plug 'cohama/lexima.vim'
+Plug 'kien/rainbow_parentheses.vim'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -35,14 +39,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
 
-" Notes
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 
 call plug#end()
 
@@ -52,25 +53,20 @@ filetype plugin on
 set guifont=Hasklig:h15
 set background=dark
 set termguicolors
-colorscheme gruvbox
-let g:nord_comment_brightness = 17
-let g:nord_italic_comments = 1
-let g:nord_cursor_line_number_background = 1
+colorscheme iceberg
 
 " Editor settings
 set number
-set relativenumber
 set ruler
 set cursorline
 set mouse=a
-set laststatus=2
 
 " Use git
 set nobackup
 set noswapfile
 
 " keep only tabs at gui
-set guioptions=e
+set guioptions=
 
 " Invisible chars
 set listchars=tab:→·,trail:·,extends:>,precedes:<,nbsp:+
@@ -86,6 +82,7 @@ let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
+let g:ale_fixers['ruby'] = ['rubocop']
 
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
@@ -99,15 +96,13 @@ let g:go_fmt_command = "goimports"
 " Auto-complete
 let g:deoplete#enable_at_startup = 1
 
-" Notes
-let g:notes_directories = ['~/Documents/Notes']
-let g:notes_suffix = ".txt"
-
 " Leader shortcuts
 let mapleader=","
 
-" File explorer
-map <leader>\ :Explore<cr>
+let g:vaffle_show_hidden_fields = 1
+let g:vaffle_open_select_split_position = 'topleft'
+
+map <leader>\ :Vaffle<cr>:
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -123,6 +118,16 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<cr>
 
 " Ctrl shortcuts
 nnoremap <c-p> :FZF<cr>
@@ -140,3 +145,9 @@ let g:fzf_action = {
         \ 'return': 'tabe',
         \ 'ctrl-j': 'split',
         \ 'ctrl-k': 'vsplit' }
+
+" Rainbow parenthesis
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
