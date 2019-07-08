@@ -1,3 +1,2 @@
-alias mvim='vimr'
-alias vim='vimr'
-alias vi='vimr'
+alias vim='mvim'
+alias vi='mvim'

@@ -18,12 +18,12 @@ endif
 " Formatters
 Plug 'w0rp/ale'
 
-" Language packs
+"" Language packs
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'deoplete-plugins/deoplete-go'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
+
 
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
@@ -43,9 +43,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'cocopon/iceberg.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Lipstick
+"" Lipstick
 Plug 'wakatime/vim-wakatime'
 
 
@@ -55,13 +55,13 @@ filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Fira\ Code:h13
+  set guifont=Fira\ Code:h16
 endif
 set background=dark
 set termguicolors
-colorscheme iceberg
+colorscheme dracula
 
-" Editor settings
+"" Editor settings
 set number
 set ruler
 set cursorline
@@ -84,6 +84,15 @@ set shiftwidth=2
 
 " Go settings
 let g:go_fmt_command = "goimports"
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1 
 
 " Leader shortcuts
 let mapleader=","
@@ -121,44 +130,44 @@ map <D-0> :tablast<cr>
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-f> :Ag<space>
 
-" switch to last used buffer
-nnoremap <leader>; :e#<CR>
+"" switch to last used buffer
+"nnoremap <leader>; :e#<CR>
 
-" Move selection 1 line down or up
-vnoremap J :m '>+1gv=gv<cr>
-vnoremap K :m '<-2gv=gv<cr>
+"" Move selection 1 line down or up
+"vnoremap J :m '>+1gv=gv<cr>
+"vnoremap K :m '<-2gv=gv<cr>
 
-" FZF
-let g:fzf_action = {
-        \ 'return': 'tabe',
-        \ 'ctrl-j': 'split',
-        \ 'ctrl-k': 'vsplit' }
+"" FZF
+"let g:fzf_action = {
+        "\ 'return': 'tabe',
+        "\ 'ctrl-j': 'split',
+        "\ 'ctrl-k': 'vsplit' }
 
-" Rainbow parenthesis
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"" Rainbow parenthesis
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
-" Copy file name
-command! CopyFileName :let @+ = expand("%:t")
-command! CopyFilePath :let @+ = expand("%:p")
-command! CopyRelativeFilePath :let @+ = expand("%")
+"" Copy file name
+"command! CopyFileName :let @+ = expand("%:t")
+"command! CopyFilePath :let @+ = expand("%:p")
+"command! CopyRelativeFilePath :let @+ = expand("%")
 
-" Autocomplete
-let g:deoplete#enable_at_startup = 1
+"" Autocomplete
+"let g:deoplete#enable_at_startup = 1
 
-" Ale
-let g:ale_fixers = {}
-let g:ale_linters = {}
-let g:ale_fixers["*"] = ["remove_trailing_lines", "trim_whitespace"]
-let g:ale_fixers["javascript"] = ["prettier"]
-let g:ale_fixers["javascript.jsx"] = ["prettier"]
-let g:ale_fixers["json"] = ["prettier"]
-let g:ale_fixers["css"] = ["prettier"]
-let g:ale_fixers["scss"] = ["prettier"]
-let g:ale_fixers["yaml"] = ["prettier"]
-let g:ale_fixers["ruby"] = ["rubocop"]
-let g:ale_linters_explicit = 1
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+"" Ale
+"let g:ale_fixers = {}
+"let g:ale_linters = {}
+"let g:ale_fixers["*"] = ["remove_trailing_lines", "trim_whitespace"]
+"let g:ale_fixers["javascript"] = ["prettier"]
+"let g:ale_fixers["javascript.jsx"] = ["prettier"]
+"let g:ale_fixers["json"] = ["prettier"]
+"let g:ale_fixers["css"] = ["prettier"]
+"let g:ale_fixers["scss"] = ["prettier"]
+"let g:ale_fixers["yaml"] = ["prettier"]
+"let g:ale_fixers["ruby"] = ["rubocop"]
+"let g:ale_linters_explicit = 1
+"let g:ale_fix_on_save = 1
+"let g:ale_completion_enabled = 1

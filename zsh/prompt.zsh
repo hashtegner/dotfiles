@@ -11,9 +11,9 @@ fi
 
 resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
-dirtyColor="%{$fg[red]%}"
-cleanColor="%{$fg[green]%}"
-dirColor="%{$fg[white]%}"
+dirtyColor="%{$fg_bold[magenta]%}"
+cleanColor="%{$fg_bold[green]%}"
+dirColor="%{$fg[blue]%}"
 prefix="🦄$resetColor"
 
 git_branch() {
@@ -27,9 +27,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "at $cleanColor$(git_prompt_info) ✔$resetColor"
+      echo "$cleanColor$(git_prompt_info) ✔$resetColor"
     else
-      echo "at $dirtyColor$(git_prompt_info) ✖$resetColor"
+      echo "$dirtyColor$(git_prompt_info) ✖$resetColor"
     fi
   fi
 }
