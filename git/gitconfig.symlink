@@ -80,6 +80,7 @@
       wtf     = !$ZSH/bin/git-wtf
       rank-contributors = !$ZSH/bin/git-rank-contributors
       count   = !git shortlog -sn
+	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
 [core]
         excludesfile = ~/.gitignore
 [apply]
