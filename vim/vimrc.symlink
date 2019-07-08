@@ -56,7 +56,7 @@ filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Fira\ Code:h16
+  set guifont=Fira\ Code:h14
 endif
 set background=dark
 set termguicolors
