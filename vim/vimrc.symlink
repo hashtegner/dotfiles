@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'cocopon/vaffle.vim'
 
 " Auto complete
 if has('nvim')
@@ -24,6 +23,7 @@ Plug 'deoplete-plugins/deoplete-go'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'nicwest/vim-http'
 
 "Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
@@ -33,7 +33,6 @@ Plug 'junegunn/gv.vim'
 
 " Auto close pairs
 Plug 'cohama/lexima.vim'
-Plug 'kien/rainbow_parentheses.vim'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -43,8 +42,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'liuchengxu/space-vim-theme'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -56,18 +54,18 @@ filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Fira\ Code:h14
+  set guifont=Hasklig:h14
 endif
 set background=dark
 set termguicolors
-let g:seoul256_background = 237
-colorscheme seoul256
+colorscheme space_vim_theme
 
 " Editor settings
 set number
 set ruler
 set cursorline
 set mouse=a
+set statusline=%=%m\ %c\ %P\ %f
 
 " Use git
 set nobackup
@@ -99,9 +97,7 @@ let g:go_auto_sameids = 1
 " Leader shortcuts
 let mapleader=","
 
-let g:vaffle_show_hidden_fields = 1
-
-map <leader>\ :Vaffle %:h<cr>
+map <leader>\ :Explore<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -144,12 +140,6 @@ let g:fzf_action = {
         \ 'return': 'tabe',
         \ 'ctrl-j': 'split',
         \ 'ctrl-k': 'vsplit' }
-
-" Rainbow parenthesis
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Copy file name
 command! CopyFileName :let @+ = expand("%:t")
