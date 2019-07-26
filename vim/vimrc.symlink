@@ -54,11 +54,13 @@ filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Hasklig:h14
+  set guifont=Hasklig:h16
 endif
 set background=dark
 set termguicolors
 colorscheme space_vim_theme
+hi Comment guifg=#5C6370 ctermfg=59
+hi SpecialKey guifg=#5C6370 ctermfg=59
 
 " Editor settings
 set number
@@ -76,7 +78,7 @@ set guioptions=
 
 " Invisible chars
 set listchars=tab:→·,trail:·,extends:>,precedes:<,nbsp:+
-set list
+set nolist
 
 " Convert tabs
 set expandtab
