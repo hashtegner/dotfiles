@@ -14,51 +14,35 @@ baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg_bold[red]%}"
 cleanColor="%{$fg_bold[green]%}"
 dirColor="%{$fg[magenta]%}"
+unstagedColor="%{$fg_bold[yellow]%}"
 prefix="🦄$resetColor"
 
-git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+__git_branch() {
+  $git symbolic-ref --quiet --short HEAD 2>/dev/null \
+    || $git rev-parse --short HEAD 2>/dev/null \
+    || echo 'unknown'
 }
 
-git_dirty() {
-  if $(! $git status -s &> /dev/null)
+__need_push() {
+  number=$($git cherry -v 2>/dev/null | wc -l | bc)
+  if [[ $number != 0 ]]
   then
-    echo ""
-  else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "$cleanColor$(git_prompt_info) ✔$resetColor"
-    else
-      echo "$dirtyColor$(git_prompt_info) ✖$resetColor"
-    fi
+    echo "with $dirtyColor$number unpushed$resetColor"
   fi
 }
 
-git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+__prompt_git() {
+  # check if we're in a git repo. (fast)
+  $git rev-parse --is-inside--work-tree &>/dev/null || return
+
+  $git diff --no-ext-diff --quiet \
+    && echo "$cleanColor$(__git_branch) ✔$resetColor $(__need_push)" \
+    || echo "$dirtyColor$(__git_branch) ✖$resetColor $(__need_push)"
 }
 
-# This assumes that you always have an origin named `origin`, and that you only
-# care about one specific origin. If this is not the case, you might want to use
-# `$git cherry -v @{upstream}` instead.
-need_push () {
-  if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
-  then
-    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
 
-    if [[ $number == 0 ]]
-    then
-      echo " "
-    else
-      echo " with $dirtyColor$number unpushed$resetColor"
-    fi
-  fi
-}
-
-directory_name() {
+__directory_name() {
   echo "$dirColor%~$resetColor"
 }
 
-export PROMPT=$'\n$prefix $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$prefix $(__directory_name) $(__prompt_git)\n› '
