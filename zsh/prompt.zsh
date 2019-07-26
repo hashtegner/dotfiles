@@ -13,8 +13,7 @@ resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg_bold[red]%}"
 cleanColor="%{$fg_bold[green]%}"
-dirColor="%{$fg[magenta]%}"
-unstagedColor="%{$fg_bold[yellow]%}"
+pathColor="%{$fg[magenta]%}"
 prefix="🦄$resetColor"
 
 __git_branch() {
@@ -42,7 +41,7 @@ __prompt_git() {
 
 
 __directory_name() {
-  echo "$dirColor%~$resetColor"
+  echo "$pathColor%~$resetColor"
 }
 
 export PROMPT=$'\n$prefix $(__directory_name) $(__prompt_git)\n› '
