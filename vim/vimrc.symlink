@@ -5,27 +5,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Auto complete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Formatters
 Plug 'w0rp/ale'
 
 "" Language packs
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'deoplete-plugins/deoplete-go'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'nicwest/vim-http'
 
-"Plug 'junegunn/vim-xmark', { 'do': 'make' }
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -35,14 +27,15 @@ Plug 'junegunn/gv.vim'
 Plug 'cohama/lexima.vim'
 
 " Comments
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'liuchengxu/space-vim-theme'
+Plug 'Rigellute/shades-of-purple.vim'
+Plug 'vim-airline/vim-airline'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -54,18 +47,22 @@ filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Hasklig:h16
+  set guifont=Fira\ Code:h13
 endif
 set background=dark
+set cursorline
 set termguicolors
-colorscheme space_vim_theme
-hi Comment guifg=#5C6370 ctermfg=59
-hi SpecialKey guifg=#5C6370 ctermfg=59
+colorscheme shades_of_purple
+let g:shades_of_purple_airline=1
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='shades_of_purple'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Editor settings
 set number
 set ruler
-set cursorline
 set mouse=a
 set statusline=%=%m\ %c\ %P\ %f
 
@@ -115,6 +112,7 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+noremap <leader>t :tabe<cr>
 map <D-1> 1gt
 map <D-2> 2gt
 map <D-3> 3gt
@@ -125,6 +123,7 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<cr>
+
 
 " Ctrl shortcuts
 nnoremap <c-p> :FZF<cr>
@@ -149,11 +148,11 @@ command! CopyFilePath :let @+ = expand("%:p")
 command! CopyRelativeFilePath :let @+ = expand("%")
 
 " Autocomplete
-let g:deoplete#enable_at_startup = 1
+"let g:LanguageClient_serverCommands = { 'go': ['gopls'] }
+" let g:deoplete#enable_at_startup = 1
 
 " Ale
 let g:ale_fixers = {}
-let g:ale_linters = {}
 let g:ale_fixers["*"] = ["remove_trailing_lines", "trim_whitespace"]
 let g:ale_fixers["javascript"] = ["prettier"]
 let g:ale_fixers["javascript.jsx"] = ["prettier"]
@@ -161,7 +160,9 @@ let g:ale_fixers["json"] = ["prettier"]
 let g:ale_fixers["css"] = ["prettier"]
 let g:ale_fixers["scss"] = ["prettier"]
 let g:ale_fixers["yaml"] = ["prettier"]
-let g:ale_fixers["ruby"] = ["rubocop"]
-let g:ale_linters_explicit = 1
+let g:ale_fixers["elixir"] = ["mix_format"]
+"let g:ale_fixers["ruby"] = ["rubocop"]
+"let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+nmap <leader>d <Plug>(ale_fix)
