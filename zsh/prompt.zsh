@@ -12,8 +12,8 @@ fi
 resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg[red]%}"
-cleanColor="%{$fg[green]%}"
-pathColor="%{$fg_bold[blue]%}"
+cleanColor="%{$fg[magenta]%}"
+pathColor="%{$fg_bold[white]%}"
 prefix="🦄$resetColor"
 
 __git_branch() {

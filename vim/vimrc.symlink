@@ -36,6 +36,7 @@ Plug 'tpope/vim-fugitive'
 " Theme
 Plug 'Rigellute/shades-of-purple.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'joshdick/onedark.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -52,18 +53,21 @@ endif
 set background=dark
 set cursorline
 set termguicolors
-colorscheme shades_of_purple
-let g:shades_of_purple_airline=1
+" colorscheme shades_of_purple
+colorscheme onedark
+" let g:shades_of_purple_airline=1
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='shades_of_purple'
+" let g:airline_theme='shades_of_purple'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Editor settings
 set number
 set ruler
 set mouse=a
+set clipboard=unnamed
 set statusline=%=%m\ %c\ %P\ %f
 
 " Use git
