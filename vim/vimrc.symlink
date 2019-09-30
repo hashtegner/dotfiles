@@ -1,27 +1,20 @@
-syntax on
-call plug#begin('~/.vim/plugged')
-
+call plug#begin()
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Formatters
 Plug 'w0rp/ale'
 
-"" Language packs
+" Language packs
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
 Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
-
-Plug 'nicwest/vim-http'
-
-Plug 'junegunn/vim-xmark', { 'do': 'make' }
-
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 
 " Auto close pairs
 Plug 'cohama/lexima.vim'
@@ -30,45 +23,34 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 
 " Git
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'Rigellute/shades-of-purple.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+Plug 'junegunn/goyo.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
 
-
 call plug#end()
-
-filetype plugin on
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Fira\ Code:h13
+  set guifont=Hasklig:h14
 endif
 set background=dark
-set cursorline
 set termguicolors
-" colorscheme shades_of_purple
-colorscheme onedark
-" let g:shades_of_purple_airline=1
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='shades_of_purple'
-let g:airline_theme='onedark'
-let g:airline#extensions#tabline#buffer_nr_show = 1
+colorscheme one
 
 " Editor settings
 set number
-set ruler
+set cursorline
 set mouse=a
 set clipboard=unnamed
-set statusline=%=%m\ %c\ %P\ %f
+set laststatus=0
+
+" Auto save on :make
+set autowrite
 
 " Use git
 set nobackup
@@ -77,25 +59,13 @@ set noswapfile
 " keep only tabs at gui
 set guioptions=
 
-" Invisible chars
-set listchars=tab:→·,trail:·,extends:>,precedes:<,nbsp:+
-set nolist
 
 " Convert tabs
 set expandtab
 set shiftwidth=2
 
-"" Go settings
+" Go settings
 let g:go_fmt_command = "goimports"
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_auto_sameids = 1
 
 " Leader shortcuts
 let mapleader=","
@@ -106,32 +76,30 @@ map <leader>\ :Explore<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 " Tabs navigation
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-noremap <leader>t :tabe<cr>
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<cr>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 :tablast<CR>
+
+" Quick fix list
+nnoremap <leader>a :cclose<CR>
+map <c-n> :cnext<CR>
+map <c-m> :cprevious<CR>
+
+" Go shortcuts
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 
 " Ctrl shortcuts
 nnoremap <c-p> :FZF<cr>
-nnoremap <c-f> :Ag<space>
+nnoremap <c-f> :Grepper -tool rg<cr>
 
 " switch to last used buffer
 nnoremap <leader>; :e#<CR>
@@ -139,12 +107,6 @@ nnoremap <leader>; :e#<CR>
 " Move selection 1 line down or up
 vnoremap J :m '>+1gv=gv<cr>
 vnoremap K :m '<-2gv=gv<cr>
-
-" FZF
-let g:fzf_action = {
-        \ 'return': 'tabe',
-        \ 'ctrl-j': 'split',
-        \ 'ctrl-k': 'vsplit' }
 
 " Copy file name
 command! CopyFileName :let @+ = expand("%:t")
@@ -161,12 +123,13 @@ let g:ale_fixers["*"] = ["remove_trailing_lines", "trim_whitespace"]
 let g:ale_fixers["javascript"] = ["prettier"]
 let g:ale_fixers["javascript.jsx"] = ["prettier"]
 let g:ale_fixers["json"] = ["prettier"]
+let g:ale_fixers["html"] = ["prettier"]
 let g:ale_fixers["css"] = ["prettier"]
 let g:ale_fixers["scss"] = ["prettier"]
 let g:ale_fixers["yaml"] = ["prettier"]
 let g:ale_fixers["elixir"] = ["mix_format"]
-"let g:ale_fixers["ruby"] = ["rubocop"]
+"let g:ale_fixers["ruby"] = ["rubocop"]:
 "let g:ale_linters_explicit = 1
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 nmap <leader>d <Plug>(ale_fix)
