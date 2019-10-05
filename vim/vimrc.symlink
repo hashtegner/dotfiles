@@ -39,10 +39,7 @@ if has('gui_macvim')
   set guifont=Hasklig:h14
 endif
 
-set termguicolors
-" set background=dark
-" let g:dracula_colorterm = 0
-" colorscheme dracula
+set t_Co=256
 colorscheme paramount
 
 " Editor settings
