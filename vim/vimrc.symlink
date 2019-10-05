@@ -29,10 +29,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'pbrisbin/vim-colors-off'
 
-
-
-Plug 'scrooloose/nerdtree'
-
 " Lipstick
 Plug 'wakatime/vim-wakatime'
 
@@ -77,7 +73,7 @@ let g:go_fmt_command = "goimports"
 " Leader shortcuts
 let mapleader=","
 
-map <leader>\ :NERDTreeToggle<cr>
+map <leader>\ :Explore<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
