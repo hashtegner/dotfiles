@@ -26,8 +26,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'rakr/vim-one'
-Plug 'junegunn/goyo.vim'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'pbrisbin/vim-colors-off'
+
+
+
+Plug 'scrooloose/nerdtree'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -38,9 +42,12 @@ call plug#end()
 if has('gui_macvim')
   set guifont=Hasklig:h14
 endif
-set background=dark
+
 set termguicolors
-colorscheme one
+" set background=dark
+" let g:dracula_colorterm = 0
+" colorscheme dracula
+colorscheme paramount
 
 " Editor settings
 set number
@@ -70,7 +77,7 @@ let g:go_fmt_command = "goimports"
 " Leader shortcuts
 let mapleader=","
 
-map <leader>\ :Explore<cr>
+map <leader>\ :NERDTreeToggle<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -132,4 +139,6 @@ let g:ale_fixers["elixir"] = ["mix_format"]
 "let g:ale_linters_explicit = 1
 " let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+let g:ale_set_quickfix = 1
+
 nmap <leader>d <Plug>(ale_fix)
