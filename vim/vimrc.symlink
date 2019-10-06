@@ -31,6 +31,9 @@ Plug 'rishikanthc/skyfall-vim'
 " Lipstick
 Plug 'wakatime/vim-wakatime'
 
+" File browser
+Plug 'mcchrish/nnn.vim'
+
 call plug#end()
 
 " Theme settings
@@ -69,7 +72,7 @@ let g:go_fmt_command = "goimports"
 " Leader shortcuts
 let mapleader=","
 
-map <leader>\ :Vexplore<cr>
+map <leader>\ :NnnPicker '%:p:h'<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -95,7 +98,6 @@ map <c-m> :cprevious<CR>
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
-
 " Ctrl shortcuts
 nnoremap <c-p> :FZF<cr>
 nnoremap <c-f> :Grepper -tool rg<cr>
@@ -111,7 +113,6 @@ vnoremap K :m '<-2gv=gv<cr>
 command! CopyFileName :let @+ = expand("%:t")
 command! CopyFilePath :let @+ = expand("%:p")
 command! CopyRelativeFilePath :let @+ = expand("%")
-
 
 " Ale
 let g:ale_fixers = {}
@@ -131,3 +132,9 @@ let g:ale_completion_enabled = 1
 let g:ale_set_quickfix = 1
 
 nmap <leader>d <Plug>(ale_fix)
+
+" File manager configs
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }

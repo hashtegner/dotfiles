@@ -1,0 +1,2 @@
+export NNN_USE_EDITOR=1
+export NNN_TRASH=1
