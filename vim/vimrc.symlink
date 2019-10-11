@@ -26,7 +26,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'rishikanthc/skyfall-vim'
+" Plug 'rishikanthc/skyfall-vim'
+" Plug 'dracula/vim'
+Plug 'liuchengxu/space-vim-dark'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -41,8 +43,14 @@ if has('gui_macvim')
   set guifont=Hasklig:h14
 endif
 
-set t_Co=16
-colorscheme skyfall
+set termguicolors
+" let g:dracula_colorterm = 0
+colorscheme space-vim-dark
+
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+hi Comment guifg=#5C6370 ctermfg=59
 
 " Editor settings
 set number
