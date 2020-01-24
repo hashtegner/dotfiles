@@ -47,5 +47,3 @@
 	signingkey = 8817893C8F08F446
 [gpg]
 	program = gpg
-[commit]
-	gpgsign = true

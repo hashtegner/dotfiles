@@ -1,9 +1,10 @@
 call plug#begin()
+
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mhinz/vim-grepper'
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Formatters
 Plug 'w0rp/ale'
@@ -26,9 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-" Plug 'rishikanthc/skyfall-vim'
-" Plug 'dracula/vim'
-Plug 'liuchengxu/space-vim-dark'
+Plug 'eemed/sitruuna.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -44,13 +43,9 @@ if has('gui_macvim')
 endif
 
 set termguicolors
-" let g:dracula_colorterm = 0
-colorscheme space-vim-dark
+colorscheme sitruuna
 
 hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
-hi Comment guifg=#5C6370 ctermfg=59
 
 " Editor settings
 set number
@@ -141,8 +136,15 @@ let g:ale_set_quickfix = 1
 
 nmap <leader>d <Plug>(ale_fix)
 
+
+
 " File manager configs
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
       \ '<c-v>': 'vsplit' }
+
+" FZF
+let g:fzf_colors =
+\ { 'fg': ['fg', 'Normal'],
+\ 'bg': ['bg', 'Normal']}
