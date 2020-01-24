@@ -32,9 +32,6 @@ Plug 'eemed/sitruuna.vim'
 " Lipstick
 Plug 'wakatime/vim-wakatime'
 
-" File browser
-Plug 'mcchrish/nnn.vim'
-
 call plug#end()
 
 " Theme settings
@@ -74,8 +71,6 @@ let g:go_fmt_command = "goimports"
 
 " Leader shortcuts
 let mapleader=","
-
-map <leader>\ :NnnPicker '%:p:h'<cr>
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -135,14 +130,6 @@ let g:ale_completion_enabled = 1
 let g:ale_set_quickfix = 1
 
 nmap <leader>d <Plug>(ale_fix)
-
-
-
-" File manager configs
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
 
 " FZF
 let g:fzf_colors =
