@@ -142,6 +142,7 @@ install_dotfiles () {
     dir=$(basename $(dirname $file ))
     mkdir -p $HOME/.config}/$dir
     dst="$HOME/.config/$dir/$(basename $file)"
+    mkdir -p dst
     link_file "$src" "$dst"
   done
 }
