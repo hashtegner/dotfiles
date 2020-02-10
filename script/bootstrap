@@ -136,10 +136,6 @@ install_dotfiles () {
     link_file "$src" "$dst"
   done
 
-
-
-
-
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.configlink')
   do
     file=${src%.*}
