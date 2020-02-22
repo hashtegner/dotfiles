@@ -27,7 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'eemed/sitruuna.vim'
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -36,13 +36,13 @@ call plug#end()
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Hasklig:h14
+  set guifont=Monaco:h15
 endif
 
 set termguicolors
-colorscheme sitruuna
+colorscheme nord
 
-hi Normal     ctermbg=NONE guibg=NONE
+
 
 " Editor settings
 set number
