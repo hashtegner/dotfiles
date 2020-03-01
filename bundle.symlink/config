@@ -1,0 +1,4 @@
+---
+BUNDLE_BUILD__MYSQL2: "--with-mysql-lib=/usr/local/Cellar/mysql-client@5.7/5.7.28/lib --with-mysql-include=/usr/local/Cellar/mysql-client@5.7/5.7.28/include"
+BUNDLE_BUILD__PG: "--with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config"
+BUNDLE_BUILD__CHARLOCK_HOLMES: "-with-cppflags=-DU_USING_ICU_NAMESPACE=1 --with-cxxflags=-std=c++11"
