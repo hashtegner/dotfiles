@@ -27,7 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+Plug 'kaicataldo/material.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -40,7 +40,9 @@ if has('gui_macvim')
 endif
 
 set termguicolors
-colorscheme nord
+let g:material_theme_style='palenight'
+set background=dark
+colorscheme material
 
 
 
