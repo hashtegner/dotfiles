@@ -25,3 +25,16 @@ window:
   startup_mode: Maximized
   decorations: buttonless
 
+key_bindings:
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  - { key: D, mods: Command, chars: "\x02\x25" }
+  - { key: D, mods: Command|Shift, chars: "\x02\x22" }
+  - { key: LBracket, mods: Shift|Command, chars: "\x02\x70" }
+  - { key: RBracket, mods: Shift|Command, chars: "\x02\x6e" }
+  - { key: Left, mods: Shift|Command, chars: "\x02\x70" }
+  - { key: Right, mods: Shift|Command, chars: "\x02\x6e" }
+  - { key: Left, mods: Command, chars: "\x02\x1b\x5b\x44" }
+  - { key: Right, mods: Command, chars: "\x02\x1b\x5b\x43" }
+  - { key: Up, mods: Command, chars: "\x02\x1b\x5b\x41" }
+  - { key: Down, mods: Command, chars: "\x02\x1b\x5b\x42" }
+
