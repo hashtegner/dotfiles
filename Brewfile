@@ -45,7 +45,6 @@ cask "spotify"
 cask "the-unarchiver"
 cask "transmission"
 cask "virtualbox"
-cask "visual-studio-code-insiders"
 mas "Magnet", id: 441258766
 mas "MindNode", id: 1289197285
 mas "Pages", id: 409201541
