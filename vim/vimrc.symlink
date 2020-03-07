@@ -50,6 +50,7 @@ set cursorline
 set mouse=a
 set clipboard=unnamed
 set laststatus=0
+set guicursor=
 
 " Auto save on :make
 set autowrite
