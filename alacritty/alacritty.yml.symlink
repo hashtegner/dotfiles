@@ -20,7 +20,7 @@ shell:
 
 window:
   padding:
-    x: 20
+    x: 15
     y: 10
   startup_mode: Maximized
   decorations: buttonless
