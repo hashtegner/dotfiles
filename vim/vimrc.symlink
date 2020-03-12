@@ -5,6 +5,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mhinz/vim-grepper'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 
 " Formatters
 Plug 'w0rp/ale'
@@ -77,6 +78,9 @@ let mapleader=","
 
 " Reload vim source
 nnoremap <leader>sv :so $MYVIMRC<cr>
+
+" Explorer
+nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " Tabs navigation
 nnoremap <leader>1 1gt
