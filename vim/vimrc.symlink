@@ -92,6 +92,12 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 :tablast<CR>
 
+" Go hard or go home
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
 " Quick fix list
 nnoremap <leader>a :cclose<CR>
 map <c-n> :cnext<CR>
