@@ -45,8 +45,6 @@ let g:material_theme_style='palenight'
 set background=dark
 colorscheme material
 
-
-
 " Editor settings
 set number
 set cursorline
