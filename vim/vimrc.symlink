@@ -1,7 +1,9 @@
 call plug#begin()
 
 " Source search and tree visualization
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'mhinz/vim-grepper'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -120,8 +122,8 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " Ctrl shortcuts
-nnoremap <c-p> :FZF<cr>
-nnoremap <c-f> :Grepper -tool rg<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <c-f> :Rg<cr>
 
 " switch to last used buffer
 nnoremap <leader>; :e#<CR>
@@ -155,6 +157,8 @@ let g:ale_set_quickfix = 1
 nmap <leader>f <Plug>(ale_fix)
 
 " FZF
-let g:fzf_colors =
-\ { 'fg': ['fg', 'Normal'],
-\ 'bg': ['bg', 'Normal']}
+" let g:fzf_colors =
+" \ { 'fg': ['fg', 'Normal'],
+" \ 'bg': ['bg', 'Normal']}
+
+let g:fzf_preview_window = 'right:60%'
