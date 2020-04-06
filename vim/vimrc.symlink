@@ -30,7 +30,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'kaicataldo/material.vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -43,9 +43,8 @@ if has('gui_macvim')
 endif
 
 set termguicolors
-let g:material_theme_style='palenight'
 set background=dark
-colorscheme material
+colorscheme dracula
 
 " Editor settings
 set number
