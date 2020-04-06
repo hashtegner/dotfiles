@@ -37,7 +37,7 @@ call plug#end()
 
 " Theme settings
 if has('gui_macvim')
-  set guifont=Monaco:h15
+  set guifont=Source\ Code\ Pro:h13
 endif
 
 set termguicolors
@@ -47,6 +47,7 @@ colorscheme material
 
 " Editor settings
 set number
+set relativenumber
 set cursorline
 set mouse=a
 set clipboard=unnamed
@@ -107,6 +108,7 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " Quick fix list
 nnoremap <leader>a :cclose<CR>
@@ -150,7 +152,7 @@ let g:ale_fixers["ruby"] = ["rubocop"]
 let g:ale_completion_enabled = 1
 let g:ale_set_quickfix = 1
 
-nmap <leader>d <Plug>(ale_fix)
+nmap <leader>f <Plug>(ale_fix)
 
 " FZF
 let g:fzf_colors =
