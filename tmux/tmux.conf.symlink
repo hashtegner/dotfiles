@@ -2,12 +2,8 @@ set -g mouse on
 set -g set-clipboard on
 set -ga terminal-overrides ',xterm-256color:Tc'
 
-set -g @plugin 'arcticicestudio/nord-tmux'
-set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'tmux-plugins/tmux-copycat'
 
-set -g @continuum-boot 'on'
-set -g @continuum-boot-options 'iterm'
+set -g @plugin 'dracula/tmux'
 
 run -b '~/.tmux/plugins/tpm/tpm'
