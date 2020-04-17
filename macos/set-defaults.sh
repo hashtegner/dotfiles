@@ -43,4 +43,7 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Always show invisible files
 defaults write com.apple.finder AppleShowAllFiles YES;
 
+
+defaults write org.vim.MacVim MMTitlebarAppearsTransparent true
+
 killall Finder /System/Library/CoreServices/Finder.app
