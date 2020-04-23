@@ -30,7 +30,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Theme
-Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'wadackel/vim-dogrun'
+Plug 'itchyny/lightline.vim'
 
 " Lipstick
 Plug 'wakatime/vim-wakatime'
@@ -44,7 +45,13 @@ endif
 
 set termguicolors
 set background=dark
-colorscheme dracula
+colorscheme dogrun
+hi Normal guibg=NONE ctermbg=NONE
+
+set laststatus=2
+let g:lightline = {
+  \ 'colorscheme': 'dogrun',
+  \ }
 
 " Editor settings
 set number
@@ -155,9 +162,17 @@ let g:ale_set_quickfix = 1
 
 nmap <leader>f <Plug>(ale_fix)
 
-" FZF
 " let g:fzf_colors =
-" \ { 'fg': ['fg', 'Normal'],
-" \ 'bg': ['bg', 'Normal']}
-
-let g:fzf_preview_window = 'right:60%'
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
