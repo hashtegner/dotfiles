@@ -28,6 +28,7 @@ Plug 'tpope/vim-commentary'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/git-messenger.vim'
 
 " Lipstick
 Plug 'morhetz/gruvbox'
@@ -154,19 +155,21 @@ let g:ale_fixers["ruby"] = ["rubocop"]
 let g:ale_completion_enabled = 1
 let g:ale_set_quickfix = 1
 
+nmap <leader>gm <Plug>(git-messenger)
 nmap <leader>f <Plug>(ale_fix)
 
-" let g:fzf_colors =
-" \ { 'fg':      ['fg', 'Normal'],
-"   \ 'bg':      ['bg', 'Normal'],
-"   \ 'hl':      ['fg', 'Comment'],
-"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"   \ 'hl+':     ['fg', 'Statement'],
-"   \ 'info':    ['fg', 'PreProc'],
-"   \ 'border':  ['fg', 'Ignore'],
-"   \ 'prompt':  ['fg', 'Conditional'],
-"   \ 'pointer': ['fg', 'Exception'],
-"   \ 'marker':  ['fg', 'Keyword'],
-"   \ 'spinner': ['fg', 'Label'],
-"   \ 'header':  ['fg', 'Comment'] }
+let g:fzf_colors = {}
+
+let g:fzf_colors.fg      = ['fg', 'GruvboxFg1']
+let g:fzf_colors.bg      = ['fg', 'GruvboxBg0']
+let g:fzf_colors.hl      = ['fg', 'GruvboxRed']
+let g:fzf_colors['fg+']  = ['fg', 'GruvboxGreen']
+let g:fzf_colors['bg+']  = ['fg', 'GruvboxBg1']
+let g:fzf_colors['hl+']  = ['fg', 'GruvboxRed']
+let g:fzf_colors.info    = ['fg', 'GruvboxOrange']
+let g:fzf_colors.border  = ['fg', 'GruvboxBg0']
+let g:fzf_colors.prompt  = ['fg', 'GruvboxAqua']
+let g:fzf_colors.pointer = ['fg', 'GruvboxOrange']
+let g:fzf_colors.marker  = ['fg', 'GruvboxYellow']
+let g:fzf_colors.spinner = ['fg', 'GruvboxGreen']
+let g:fzf_colors.header  = ['fg', 'GruvboxBlue']
