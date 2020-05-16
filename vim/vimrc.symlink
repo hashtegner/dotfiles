@@ -1,5 +1,5 @@
 call plug#begin()
-
+"
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -29,11 +29,8 @@ Plug 'tpope/vim-commentary'
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Theme
-Plug 'wadackel/vim-dogrun'
-Plug 'itchyny/lightline.vim'
-
 " Lipstick
+Plug 'morhetz/gruvbox'
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -45,14 +42,11 @@ endif
 
 set termguicolors
 set background=dark
-colorscheme dogrun
-hi Normal guibg=NONE ctermbg=NONE
+
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
 
 set laststatus=2
-let g:lightline = {
-  \ 'colorscheme': 'dogrun',
-  \ }
-
 " Editor settings
 set number
 set relativenumber
