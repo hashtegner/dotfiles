@@ -13,7 +13,7 @@ resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg_bold[magenta]%}"
 cleanColor="%{$fg[green]%}"
-pathColor="%{$fg_bold[white]%}"
+pathColor="%{$fg[dark]%}"
 local logo="$resetColor▲$resetColor"
 
 __git_branch() {
@@ -44,4 +44,4 @@ __directory_name() {
   echo "$pathColor%c$resetColor"
 }
 
-export PROMPT=$'\n$logo ($(hostname)) $(__directory_name) $(__prompt_git)› '
+export PROMPT=$'\n$logo ($(hostname -s)) $(__directory_name) $(__prompt_git)› '
