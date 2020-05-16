@@ -29,6 +29,7 @@
 	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
 [core]
         excludesfile = ~/.gitignore
+	ignorecase = true
 [apply]
         whitespace = nowarn
 [mergetool]
