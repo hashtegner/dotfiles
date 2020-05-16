@@ -1,6 +1,0 @@
-# alias code='subl'
-
-# Pipe my public key to my clipboard.
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-alias e="$EDITOR"
-alias code="$EDITOR"
