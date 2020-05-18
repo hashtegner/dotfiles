@@ -31,8 +31,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 
 " Lipstick
-Plug 'morhetz/gruvbox'
-Plug 'wakatime/vim-wakatime'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -43,9 +43,11 @@ endif
 
 set termguicolors
 set background=dark
+colorscheme seoul256
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE
 
-let g:gruvbox_contrast_dark="hard"
-colorscheme gruvbox
+
 
 set laststatus=2
 " Editor settings
@@ -124,7 +126,7 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " Ctrl shortcuts
 nnoremap <c-p> :Files<cr>
-nnoremap <c-f> :Rg<cr>
+nnoremap <c-f> :GFiles<cr>
 
 " switch to last used buffer
 nnoremap <leader>; :e#<CR>
@@ -157,19 +159,3 @@ let g:ale_set_quickfix = 1
 
 nmap <leader>gm <Plug>(git-messenger)
 nmap <leader>f <Plug>(ale_fix)
-
-let g:fzf_colors = {}
-
-let g:fzf_colors.fg      = ['fg', 'GruvboxFg1']
-let g:fzf_colors.bg      = ['fg', 'GruvboxBg0']
-let g:fzf_colors.hl      = ['fg', 'GruvboxRed']
-let g:fzf_colors['fg+']  = ['fg', 'GruvboxGreen']
-let g:fzf_colors['bg+']  = ['fg', 'GruvboxBg1']
-let g:fzf_colors['hl+']  = ['fg', 'GruvboxRed']
-let g:fzf_colors.info    = ['fg', 'GruvboxOrange']
-let g:fzf_colors.border  = ['fg', 'GruvboxBg0']
-let g:fzf_colors.prompt  = ['fg', 'GruvboxAqua']
-let g:fzf_colors.pointer = ['fg', 'GruvboxOrange']
-let g:fzf_colors.marker  = ['fg', 'GruvboxYellow']
-let g:fzf_colors.spinner = ['fg', 'GruvboxGreen']
-let g:fzf_colors.header  = ['fg', 'GruvboxBlue']
