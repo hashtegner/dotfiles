@@ -31,8 +31,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 
 " Lipstick
-Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'ojroques/vim-scrollstatus'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -41,23 +44,23 @@ if has('gui_macvim')
   set guifont=Source\ Code\ Pro:h13
 endif
 
+let g:airline_section_x = '%{ScrollStatus()}'
+let g:airline_theme='solarized'
+let g:solarized_termtrans=1
+set background=light
 set termguicolors
-set background=dark
-colorscheme seoul256
+colorscheme solarized8_high
 hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
 
-
-
-set laststatus=2
 " Editor settings
+set clipboard=unnamed
+set cursorline
+set guicursor=
+set laststatus=2
+set mouse=a
 set number
 set relativenumber
-set cursorline
-set mouse=a
-set clipboard=unnamed
-set laststatus=0
-set guicursor=
 
 " Auto save on :make
 set autowrite

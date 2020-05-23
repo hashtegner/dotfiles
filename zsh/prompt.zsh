@@ -11,7 +11,7 @@ fi
 
 resetColor="%{$reset_color%}"
 baseColor="%{$fg[white]%}"
-dirtyColor="%{$fg_bold[magenta]%}"
+dirtyColor="%{$fg_bold[red]%}"
 cleanColor="%{$fg[green]%}"
 pathColor="%{$fg[dark]%}"
 local logo="$resetColor▲$resetColor"
