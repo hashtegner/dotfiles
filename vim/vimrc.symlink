@@ -49,6 +49,7 @@ let g:airline_section_x = '%{ScrollStatus()}'
 let g:airline_theme='solarized'
 let g:solarized_termtrans=1
 set background=light
+set fillchars+=vert:\ 
 set termguicolors
 colorscheme solarized8_high
 hi Normal guibg=NONE ctermbg=NONE
