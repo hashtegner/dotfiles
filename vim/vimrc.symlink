@@ -31,6 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 
 " Lipstick
+Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'ojroques/vim-scrollstatus'
