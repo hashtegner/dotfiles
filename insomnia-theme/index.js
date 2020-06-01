@@ -1,18 +1,18 @@
 const theme = {
-  name: 'imsonia-solarized-light-alesshh',
-  displayName: 'Solarized Light Alesshh',
+  name: 'imsonia-alesshh',
+  displayName: 'Alesshh',
   theme: {
     background: {
-      default: '#fffffa',
-      success: '#859900',
-      notice: '#b58900',
-      warning: '#cb4b16',
-      danger: '#dc322f',
-      surprise: '#6c71c4',
-      info: '#2aa198',
+      default: '#2c292d',
+      success: '#a9dc76',
+      notice: '#ffd866',
+      warning: '#fc9867',
+      danger: '#ff6188',
+      surprise: '#ab9df2',
+      info: '#78dce8',
     },
     foreground: {
-      default: '#657b83',
+      default: '#fdf9f3',
     },
     highlight: {
       default: 'rgb(142, 149, 146)',
@@ -26,10 +26,10 @@ const theme = {
     styles: {
       sidebar: {
         background: {
-          default: '#002b36',
+          default: '#2c292d',
         },
         foreground: {
-          default: '#839496',
+          default: '#fdf9f3',
         },
       },
     },

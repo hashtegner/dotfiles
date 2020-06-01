@@ -7,7 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Formatters
 Plug 'w0rp/ale'
@@ -33,10 +33,11 @@ Plug 'rhysd/git-messenger.vim'
 " Lipstick
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
-Plug 'lifepillar/vim-solarized8'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'paulssonkalle/airline-monokai-pro'
 Plug 'ojroques/vim-scrollstatus'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'lifepillar/vim-solarized8'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -45,13 +46,16 @@ if has('gui_macvim')
   set guifont=Source\ Code\ Pro:h13
 endif
 
-let g:airline_section_x = '%{ScrollStatus()}'
-let g:airline_theme='solarized'
-let g:solarized_termtrans=1
-set background=light
-set fillchars+=vert:\ 
+" let g:airline_section_x = '%{ScrollStatus()}'
+" let g:airline_theme='sierra'
+"
+let g:lightline = {
+      \ 'colorscheme': 'monokai_pro',
+      \ }
+set background=dark
+
 set termguicolors
-colorscheme solarized8_high
+colorscheme monokai_pro
 hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 
@@ -99,7 +103,28 @@ function! NerdTreeToggleFind()
     endif
 endfunction
 
-nnoremap <leader>\ :call NerdTreeToggleFind()<CR>
+function! TwfExit(path)
+  function! TwfExitClosure(job_id, data, event) closure
+    bd!
+    try
+      let out = filereadable(a:path) ? readfile(a:path) : []
+    finally
+      silent! call delete(a:path)
+    endtry
+    if !empty(out)
+      execute 'edit! ' . out[0]
+    endif
+  endfunction
+  return funcref('TwfExitClosure')
+endfunction
+
+function! Twf()
+  let temp = tempname()
+  call termopen('twf ' . @% . ' > ' . temp, { 'on_exit': TwfExit(temp) })
+  startinsert
+endfunction
+
+nnoremap <leader>\ :call Twf()<CR>
 
 " Tabs navigation
 nnoremap <leader>1 1gt
@@ -118,7 +143,6 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " Quick fix list
 nnoremap <leader>a :cclose<CR>

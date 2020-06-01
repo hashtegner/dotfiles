@@ -14,7 +14,7 @@ baseColor="%{$fg[white]%}"
 dirtyColor="%{$fg_bold[red]%}"
 cleanColor="%{$fg[green]%}"
 pathColor="%{$fg[dark]%}"
-local logo="$resetColor▲$resetColor"
+local logo="$fg[yellow]▲$resetColor"
 
 __git_branch() {
   $git symbolic-ref --quiet --short HEAD 2>/dev/null \
@@ -44,4 +44,4 @@ __directory_name() {
   echo "$pathColor%c$resetColor"
 }
 
-export PROMPT=$'\n$logo ($(hostname -s)) $(__directory_name) $(__prompt_git)› '
+export PROMPT=$'\n$logo $(__directory_name) $(__prompt_git)› '
