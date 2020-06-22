@@ -10,11 +10,11 @@ else
 fi
 
 resetColor="%{$reset_color%}"
-baseColor="%{$fg[white]%}"
-dirtyColor="%{$fg_bold[red]%}"
+baseColor="%{$fg[blue]%}"
+dirtyColor="%{$fg[red]%}"
 cleanColor="%{$fg[green]%}"
-pathColor="%{$fg[dark]%}"
-local logo="$fg[yellow]▲$resetColor"
+pathColor="%{$fg[blue]%}"
+local logo="$fg[white]▲$resetColor"
 
 __git_branch() {
   $git symbolic-ref --quiet --short HEAD 2>/dev/null \
@@ -26,7 +26,7 @@ __need_push() {
   number=$($git cherry -v 2>/dev/null | wc -l | bc)
   if [[ $number != 0 ]]
   then
-    echo "with $dirtyColor$number unpushed$resetColor"
+    echo "%{$dirtyColor%}with $number unpushed$resetColor "
   fi
 }
 
@@ -35,8 +35,8 @@ __prompt_git() {
   $git rev-parse --is-inside--work-tree &>/dev/null || return
 
   $git diff --no-ext-diff --quiet \
-    && echo "$cleanColor$(__git_branch) ✔$resetColor $(__need_push)" \
-    || echo "$dirtyColor$(__git_branch) ✖$resetColor $(__need_push)"
+    && echo "$resetColor$(__git_branch) $cleanColor✔$resetColor $(__need_push)" \
+    || echo "$resetColor$(__git_branch) $dirtyColor✖$resetColor $(__need_push)"
 }
 
 
@@ -44,4 +44,4 @@ __directory_name() {
   echo "$pathColor%c$resetColor"
 }
 
-export PROMPT=$'\n$logo $(__directory_name) $(__prompt_git)› '
+export PROMPT=$'\n$logo $(__directory_name) $(__prompt_git)|> '

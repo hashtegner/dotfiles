@@ -1,24 +1,21 @@
+set encoding=UTF-8
+
 call plug#begin()
-"
+
 " Source search and tree visualization
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'mhinz/vim-grepper'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Formatters
-Plug 'w0rp/ale'
+""" Language packs
+""Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'elixir-editors/vim-elixir'
+""Plug 'pangloss/vim-javascript'
+""Plug 'maxmellon/vim-jsx-pretty'
 
-" Language packs
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'elixir-editors/vim-elixir'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 
 " Auto close pairs
 Plug 'cohama/lexima.vim'
@@ -28,41 +25,28 @@ Plug 'tpope/vim-commentary'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'rhysd/git-messenger.vim'
 
-" Lipstick
-Plug 'ap/vim-css-color'
-Plug 'junegunn/goyo.vim'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'paulssonkalle/airline-monokai-pro'
-Plug 'ojroques/vim-scrollstatus'
-Plug 'lifepillar/vim-solarized8'
+"" Lipstick
+"Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
+Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 
-" Theme settings
-if has('gui_macvim')
-  set guifont=Source\ Code\ Pro:h13
-endif
-
-" let g:airline_section_x = '%{ScrollStatus()}'
-" let g:airline_theme='sierra'
-"
-let g:lightline = {
-      \ 'colorscheme': 'monokai_pro',
-      \ }
 set background=dark
-
 set termguicolors
-colorscheme monokai_pro
-hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
+colorscheme iceberg
+hi Normal ctermbg=NONE guibg=NONE
+hi EndOfBuffer ctermbg=NONE guibg=NONE
+hi LineNr ctermbg=NONE guibg=NONE
+
+let g:lightline={ 'colorscheme': 'iceberg' }
 
 " Editor settings
 set clipboard=unnamed
 set cursorline
 set guicursor=
+set guioptions=
 set laststatus=2
 set mouse=a
 set number
@@ -75,56 +59,20 @@ set autowrite
 set nobackup
 set noswapfile
 
-" keep only tabs at gui
-set guioptions=
-
-
 " Convert tabs
 set expandtab
 set shiftwidth=2
 
 " Go settings
-let g:go_fmt_command = "goimports"
+""let g:go_fmt_command = "goimports"
 
 " Leader shortcuts
 let mapleader=","
 
 " Reload vim source
-nnoremap <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>so :so $MYVIMRC<cr>
 
-" Explorer
-function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
-endfunction
-
-function! TwfExit(path)
-  function! TwfExitClosure(job_id, data, event) closure
-    bd!
-    try
-      let out = filereadable(a:path) ? readfile(a:path) : []
-    finally
-      silent! call delete(a:path)
-    endtry
-    if !empty(out)
-      execute 'edit! ' . out[0]
-    endif
-  endfunction
-  return funcref('TwfExitClosure')
-endfunction
-
-function! Twf()
-  let temp = tempname()
-  call termopen('twf ' . @% . ' > ' . temp, { 'on_exit': TwfExit(temp) })
-  startinsert
-endfunction
-
-nnoremap <leader>\ :call Twf()<CR>
+nnoremap <leader>\ :Explore<CR>
 
 " Tabs navigation
 nnoremap <leader>1 1gt
@@ -144,21 +92,13 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-" Quick fix list
-nnoremap <leader>a :cclose<CR>
-map <c-n> :cnext<CR>
-map <c-m> :cprevious<CR>
-
-" Go shortcuts
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
+"" Go shortcuts
+"autocmd FileType go nmap <leader>b  <Plug>(go-build)
+"autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " Ctrl shortcuts
 nnoremap <c-p> :Files<cr>
-nnoremap <c-f> :GFiles<cr>
-
-" switch to last used buffer
-nnoremap <leader>; :e#<CR>
+nnoremap <c-g> :GFiles<cr>
 
 " Move selection 1 line down or up
 vnoremap J :m '>+1gv=gv<cr>
@@ -169,22 +109,13 @@ command! CopyFileName :let @+ = expand("%:t")
 command! CopyFilePath :let @+ = expand("%:p")
 command! CopyRelativeFilePath :let @+ = expand("%")
 
-" Ale
-let g:ale_fixers = {}
-let g:ale_fixers["*"] = ["remove_trailing_lines", "trim_whitespace"]
-let g:ale_fixers["javascript"] = ["prettier"]
-let g:ale_fixers["javascript.jsx"] = ["prettier"]
-let g:ale_fixers["json"] = ["prettier"]
-let g:ale_fixers["html"] = ["prettier"]
-let g:ale_fixers["css"] = ["prettier"]
-let g:ale_fixers["scss"] = ["prettier"]
-let g:ale_fixers["yaml"] = ["prettier"]
-let g:ale_fixers["elixir"] = ["mix_format"]
-let g:ale_fixers["ruby"] = ["rubocop"]
-"let g:ale_linters_explicit = 1
-" let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_set_quickfix = 1
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-nmap <leader>gm <Plug>(git-messenger)
-nmap <leader>f <Plug>(ale_fix)
+" Formatting selected code.
+command! -nargs=0 Format :call CocAction('format')
+xmap <leader>f :Format<CR>
+nmap <leader>f :Format<CR>
