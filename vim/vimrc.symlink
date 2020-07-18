@@ -1,4 +1,4 @@
-set encoding=UTF-8
+" set encoding=UTF-8
 
 call plug#begin()
 
@@ -6,16 +6,15 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Language packs
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'elixir-editors/vim-elixir'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-""" Language packs
-""Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"Plug 'elixir-editors/vim-elixir'
-""Plug 'pangloss/vim-javascript'
-""Plug 'maxmellon/vim-jsx-pretty'
-
-"Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " Auto close pairs
 Plug 'cohama/lexima.vim'
@@ -27,20 +26,19 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 "" Lipstick
-"Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
-Plug 'cocopon/iceberg.vim'
+Plug 'imjasonmiller/vim-colors-github', { 'branch': 'feature_dark_mode' }
 
 call plug#end()
-
 set background=dark
 set termguicolors
-colorscheme iceberg
-hi Normal ctermbg=NONE guibg=NONE
-hi EndOfBuffer ctermbg=NONE guibg=NONE
-hi LineNr ctermbg=NONE guibg=NONE
+colorscheme githubdark
+" hi Normal ctermbg=NONE guibg=NONE
+" hi EndOfBuffer ctermbg=NONE guibg=NONE
+" hi LineNr ctermbg=NONE guibg=NONE
 
-let g:lightline={ 'colorscheme': 'iceberg' }
+let g:lightline={ 'colorscheme': 'githubdark' }
 
 " Editor settings
 set clipboard=unnamed
@@ -64,7 +62,7 @@ set expandtab
 set shiftwidth=2
 
 " Go settings
-""let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 
 " Leader shortcuts
 let mapleader=","

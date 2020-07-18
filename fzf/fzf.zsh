@@ -1,9 +1,5 @@
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:#c6c8d1,bg:#191919,hl:#89b8c2
- --color=fg+:#95c4ce,bg+:#191919,hl+:#95c4ce
- --color=info:#c6c8d1,prompt:#89b8c2,pointer:#89b8c2
- --color=marker:#89b8c2,spinner:#89b8c2,header:#89b8c2'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#fafbfc,bg:#24292e,hl:#8a63d2 --color=fg+:#fafbfc,bg+:#24292e,hl+:#8a63d2 --color=info:#d73a49,prompt:#d73a49,pointer:#8a63d2 --color=marker:#34d058,spinner:#d73a49,header:#d73a49'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
