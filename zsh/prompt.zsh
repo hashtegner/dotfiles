@@ -13,8 +13,9 @@ resetColor="%{$reset_color%}"
 baseColor="%{$fg[blue]%}"
 dirtyColor="%{$fg[red]%}"
 cleanColor="%{$fg[green]%}"
-pathColor="%{$fg[white]%}"
-local logo="$fg_bold[red]▲$resetColor"
+pathColor="%{$fg_bold[blue]%}"
+promptColor="%{$fg_bold[blue]%}"
+local logo="$fg_bold[dark]▲$resetColor"
 
 __git_branch() {
   $git symbolic-ref --quiet --short HEAD 2>/dev/null \
@@ -39,9 +40,8 @@ __prompt_git() {
     || echo "$resetColor$(__git_branch) $dirtyColor✖$resetColor $(__need_push)"
 }
 
-
 __directory_name() {
-  echo "$pathColor%c$resetColor"
+  echo "$pathColor%~$resetColor"
 }
 
-export PROMPT=$'\n$logo $(__directory_name) $(__prompt_git)|> '
+export PROMPT=$'\n$logo $(__directory_name) $(__prompt_git)\n$promptColor❯$resetColor '
