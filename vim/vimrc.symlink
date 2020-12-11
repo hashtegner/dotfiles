@@ -28,17 +28,13 @@ Plug 'tpope/vim-fugitive'
 "" Lipstick
 Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
-Plug 'imjasonmiller/vim-colors-github', { 'branch': 'feature_dark_mode' }
+Plug 'cormacrelf/vim-colors-github'
 
 call plug#end()
-set background=dark
 set termguicolors
-colorscheme githubdark
-" hi Normal ctermbg=NONE guibg=NONE
-" hi EndOfBuffer ctermbg=NONE guibg=NONE
-" hi LineNr ctermbg=NONE guibg=NONE
+colorscheme github
 
-let g:lightline={ 'colorscheme': 'githubdark' }
+let g:lightline={ 'colorscheme': 'github' }
 
 " Editor settings
 set clipboard=unnamed
