@@ -2,22 +2,22 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "fb935cbb0e1eb7cc1eea4f274cbaf414dce49488"
+        "revision": "5628f2152de4896e0994fe0c3c1d0d7350ddf1ff"
       },
       "homebrew/cask": {
-        "revision": "29dfd8564f578809d995e31051bee720651b9f9a"
+        "revision": "84d2fd45f74a6a2d551c809ad9198d78dbef40b9"
       },
       "homebrew/cask-fonts": {
-        "revision": "50d12b3d69d8c89fe49c8fcd48aa22418c9b6b2d"
+        "revision": "3a6a30ef0b3b33efb68666083017e652e4facc0f"
       },
       "homebrew/cask-versions": {
-        "revision": "202805630f0e459a89e33269a22569a768dc6fdd"
+        "revision": "70a273b2501ac663779a370180587112a158905b"
       },
       "homebrew/core": {
-        "revision": "ca64172118d2ba5e870f4b59a1b4e9e8932c9d9b"
+        "revision": "18d380e75668faa6314661a4fc5545759b09bea0"
       },
       "homebrew/services": {
-        "revision": "c8fee02f479d20cf286c20babe696e56d8680205"
+        "revision": "492fa4ecaffcd735fea8aad6655ccf10228e6c0f"
       },
       "mas-cli/tap": {
         "revision": "d3f66e4f8ee9d6effaf9c4e4264f2944047bf803"
@@ -582,6 +582,14 @@
         "CLT": "11.4.1.0.1.1586360307",
         "Xcode": "11.4.1",
         "macOS": "10.15.4"
+      },
+      "big_sur": {
+        "HOMEBREW_VERSION": "2.6.1",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "18d380e75668faa6314661a4fc5545759b09bea0",
+        "CLT": "",
+        "Xcode": "12.3",
+        "macOS": "11.1"
       }
     }
   }
