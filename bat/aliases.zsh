@@ -1,1 +1,1 @@
-alias cat=bat
+alias cat='bat --theme GitHub'
