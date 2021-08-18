@@ -45,6 +45,7 @@ done
 
 unset config_files
 
-
-test -e "${HOME}/.env.zsh" && source "${HOME}/.env.zsh"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -f ~/.zshenv ] && source ~/.zshenv
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
