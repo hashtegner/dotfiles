@@ -16,4 +16,6 @@ brew install iterm2 --cask
 brew install datagrip --cask
 brew install spotify --cask
 brew install the-unarchiver --cask
-brew install visual-studio-code-insiders --cask
+brew install visual-studio-code --cask
+
+brew install font-hasklig --cask
