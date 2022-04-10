@@ -1,0 +1,13 @@
+# load zsh config
+source ~/.zsh_config.zsh
+source ~/.env.zsh
+
+# load files
+source ~/.aliases.zsh
+source ~/.asdf.zsh
+source ~/.autojump.zsh
+source ~/.fzf.zsh
+source ~/.prompt.zsh
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit && compinit -i

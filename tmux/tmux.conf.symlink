@@ -1,9 +1,0 @@
-set -g mouse on
-set -g set-clipboard on
-set -ga terminal-overrides ',xterm-256color:Tc'
-
-# set -g @plugin 'tmux-plugins/tmux-copycat'
-
-set -g @plugin 'dracula/tmux'
-
-run -b '~/.tmux/plugins/tpm/tpm'

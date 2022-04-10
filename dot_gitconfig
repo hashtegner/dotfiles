@@ -1,0 +1,45 @@
+# Local/private config goes in the include
+
+[include]
+      path = ~/.gitconfig.local
+[hub]
+      protocol = https
+[alias]
+      b = branch
+      ca = commit --amend
+      ci = commit -v
+      co = checkout
+      dw = diff --word-diff
+      fl = log -p
+      lg = log --oneline --decorate
+      sb = status -sb
+      sh = !git-sh
+      st = status
+      who = shortlog -s --
+      aa = add --all
+      ap = add --patch
+      branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+      pf = push --force-with-lease
+      count   = !git shortlog -sn
+	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
+[core]
+	excludesfile = .solargraph.yml
+	ignorecase = true
+[apply]
+      whitespace = nowarn
+[mergetool]
+      keepBackup = false
+[difftool]
+      prompt = false
+[help]
+      autocorrect = 1
+[user]
+	signingkey = 8817893C8F08F446
+[gpg]
+      program = gpg
+[push]
+      default = current
+[pull]
+	rebase = true
+[init]
+      defaultBranch = main

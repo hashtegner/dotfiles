@@ -1,1 +1,0 @@
-[ -f /usr/local/opt/fzf/install ] && /usr/local/opt/fzf/install --all --no-bash

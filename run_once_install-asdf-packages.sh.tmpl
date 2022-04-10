@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# run_once_install-packages.sh hash: {{ include "run_once_install-packages.sh" | sha256sum }}
+
+if [ ! -d ~/.asdf/ ]; then
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+fi
+
+~/.asdf/bin/asdf plugin-add golang
+~/.asdf/bin/asdf plugin-add java
+~/.asdf/bin/asdf plugin-add maven
+~/.asdf/bin/asdf plugin-add nodejs
+~/.asdf/bin/asdf plugin-add ruby
+
+~/.asdf/bin/asdf plugin-update --all

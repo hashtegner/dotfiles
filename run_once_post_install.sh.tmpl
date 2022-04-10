@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# run_once_install-packages.sh hash: {{ include "run_once_install-packages.sh" | sha256sum }}
+
+if ! [ $(grep  $(which zsh)  /etc/shells) ]; then
+    echo $(which zsh) | sudo tee -a /etc/shells
+    chsh -s $(which zsh)
+fi
+
+
+## MacOS configs
+
+# Always show invisible files
+defaults write com.apple.finder AppleShowAllFiles YES; 
+killall Finder /System/Library/CoreServices/Finder.app
