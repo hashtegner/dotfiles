@@ -13,3 +13,6 @@ alias reload!='. ~/.zshrc'
 alias rc='bin/rails c'
 alias rs='bin/rails s'
 alias rspec='bin/rspec spec'
+
+# docker
+alias redisd='docker run -p 6379:6379  --rm redis:alpine'
