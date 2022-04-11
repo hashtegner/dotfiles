@@ -2,6 +2,7 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+
 brew install autojump
 brew install bat
 brew install chezmoi
@@ -14,8 +15,12 @@ brew install alfred --cask
 brew install appcleaner --cask
 brew install iterm2 --cask
 brew install datagrip --cask
+brew install paw --cask
+brew install rectangle --cask
+brew install slack-beta --cask
 brew install spotify --cask
 brew install the-unarchiver --cask
 brew install visual-studio-code --cask
 
+brew tap homebrew/cask-fonts
 brew install font-hasklig --cask
