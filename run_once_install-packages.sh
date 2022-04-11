@@ -6,6 +6,7 @@
 brew install autojump
 brew install bat
 brew install chezmoi
+brew install exa
 brew install fzf
 brew install git
 brew install mas
@@ -26,7 +27,7 @@ brew install the-unarchiver --cask
 brew install visual-studio-code --cask
 
 brew tap homebrew/cask-fonts
-brew install font-hasklig --cask
+brew install font-firacode-nerd-font --cask
 
 mas install 1352778147 # Bitwarden
 mas install 1462114288 # Grammarly for Safari
