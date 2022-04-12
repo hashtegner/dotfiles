@@ -17,15 +17,18 @@ brew install alfred --cask
 brew install appcleaner --cask
 brew install datagrip --cask
 brew install docker --cask
+brew install firefox-developer-edition --cask
 brew install google-cloud-sdk --cask
 brew install intellij-idea-ce --cask
 brew install iterm2 --cask
 brew install paw --cask
 brew install rectangle --cask
+brew install safari-technology-preview --cask
 brew install slack-beta --cask
 brew install spotify --cask
 brew install the-unarchiver --cask
 brew install visual-studio-code --cask
+brew install zoom --cask
 
 brew tap homebrew/cask-drivers
 brew install logitech-g-hub --cask
