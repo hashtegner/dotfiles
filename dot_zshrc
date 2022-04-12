@@ -2,6 +2,8 @@
 source ~/.zsh_config.zsh
 source ~/.env.zsh
 
+[ -f ~/.env.local.zsh ] && source ~/.env.local.zsh
+
 # load files
 source ~/.aliases.zsh
 source ~/.asdf.zsh
