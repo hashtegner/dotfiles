@@ -1,0 +1,86 @@
+" install plugin manager
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+set encoding=UTF-8
+
+call plug#begin()
+
+Plug 'itchyny/lightline.vim'
+Plug 'cormacrelf/vim-colors-github'
+
+" auto close pairs
+ Plug 'cohama/lexima.vim'
+ 
+" comments
+Plug 'tpope/vim-commentary'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" language tools
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
+let g:github_colors_soft = 1
+let g:lightline={ 'colorscheme': 'github' }
+
+set termguicolors
+set background=light
+colorscheme github
+
+" use git
+set nobackup
+set noswapfile
+
+set clipboard=unnamed
+set cursorline
+set guicursor=
+set guioptions=
+set laststatus=2
+set mouse=a
+set number
+set relativenumber
+
+" convert tabs
+ set expandtab
+ set shiftwidth=2
+
+" leader shortcut
+let mapleader=","
+
+" reload vim source
+nnoremap <leader>so :so $MYVIMRC<cr>
+
+" open tree explorer
+nnoremap <leader>\ :Explore<cr>
+
+nnoremap <c-p> :Files<cr>
+nnoremap <c-g> :GFiles<cr>
+
+" move selection 1 line down or up
+vnoremap J :m '>+1gv=gv<cr>
+vnoremap K :m '<-2gv=gv<cr>
+
+" tabs navigation
+ nnoremap <leader>1 1gt
+ nnoremap <leader>2 2gt
+ nnoremap <leader>3 3gt
+ nnoremap <leader>4 4gt
+ nnoremap <leader>5 5gt
+ nnoremap <leader>6 6gt
+ nnoremap <leader>7 7gt
+ nnoremap <leader>8 8gt
+ nnoremap <leader>9 9gt
+ nnoremap <leader>0 :tablast<CR>
+
+" go hard or go home
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
