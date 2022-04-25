@@ -10,10 +10,10 @@ set encoding=UTF-8
 call plug#begin()
 
 Plug 'itchyny/lightline.vim'
-Plug 'cormacrelf/vim-colors-github'
+Plug 'arcticicestudio/nord-vim'
 
 " auto close pairs
- Plug 'cohama/lexima.vim'
+Plug 'cohama/lexima.vim'
  
 " comments
 Plug 'tpope/vim-commentary'
@@ -25,14 +25,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
 
+" language servers
+Plug 'neoclide/coc-json'
+Plug 'neoclide/coc-tsserver'
+Plug 'fannheyward/coc-pyright'
+
 call plug#end()
 
-let g:github_colors_soft = 1
-let g:lightline={ 'colorscheme': 'github' }
+" let g:github_colors_soft = 1
+let g:lightline={ 'colorscheme': 'nord' }
 
 set termguicolors
-set background=light
-colorscheme github
+set background=dark
+colorscheme nord
 
 " use git
 set nobackup
@@ -48,8 +53,8 @@ set number
 set relativenumber
 
 " convert tabs
- set expandtab
- set shiftwidth=2
+set expandtab
+set shiftwidth=2
 
 " leader shortcut
 let mapleader=","
@@ -84,3 +89,5 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+
+nmap <silent> gd <Plug>(coc-definition)
