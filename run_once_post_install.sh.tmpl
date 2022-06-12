@@ -7,9 +7,10 @@ if ! [ $(grep  $(which zsh)  /etc/shells) ]; then
     chsh -s $(which zsh)
 fi
 
+ /usr/local/opt/fzf/install --all
 
 ## MacOS configs
 
 # Always show invisible files
-defaults write com.apple.finder AppleShowAllFiles YES; 
+defaults write com.apple.finder AppleShowAllFiles YES;
 killall Finder /System/Library/CoreServices/Finder.app

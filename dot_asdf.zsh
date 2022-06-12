@@ -2,4 +2,4 @@
 
 fpath=(~/.asdf/completions $fpath)
 
-. ~/.asdf/plugins/java/set-java-home.zsh
+[ -f ~/.asdf/plugins/java/set-java-home.zsh ] && source ~/.asdf/plugins/java/set-java-home.zsh

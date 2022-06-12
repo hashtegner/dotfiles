@@ -23,8 +23,8 @@
       count   = !git shortlog -sn
 	yolo = !git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
 [core]
-	excludesfile = .solargraph.yml
-	ignorecase = true
+	excludesfile = ~/.gitignore
+	ignorecase = false
 [apply]
       whitespace = nowarn
 [mergetool]
