@@ -20,6 +20,7 @@ brew install appcleaner --cask
 brew install datagrip --cask
 brew install docker --cask
 brew install firefox-developer-edition --cask
+brew install flutter --cask
 brew install google-cloud-sdk --cask
 brew install intellij-idea-ce --cask
 brew install iterm2 --cask
