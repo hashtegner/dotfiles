@@ -8,6 +8,7 @@ brew install chezmoi
 brew install exa
 brew install fzf
 brew install git
+brew install hub
 brew install mas
 brew install neovim
 brew install zsh
