@@ -12,6 +12,7 @@ brew install mas
 brew install neovim
 brew install zsh
 
+brew tap homebrew/cask-versions
 brew install 1password --cask
 brew install alfred --cask
 brew install appcleaner --cask
