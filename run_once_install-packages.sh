@@ -8,9 +8,12 @@ brew install chezmoi
 brew install exa
 brew install fzf
 brew install git
+brew install gh
 brew install hub
 brew install mas
+brew install mysql-client@5.7
 brew install neovim
+brew install openssl
 brew install zsh
 
 brew tap homebrew/cask-versions
