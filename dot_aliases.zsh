@@ -16,3 +16,4 @@ alias rspec='bin/rspec spec'
 
 # docker
 alias redisd='docker run -p 6379:6379  --rm redis:alpine'
+alias mysqld='docker run -e 'MYSQL_ALLOW_EMPTY_PASSWORD=true' -p 3306:3306 --rm mysql:5.7'
