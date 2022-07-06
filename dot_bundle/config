@@ -1,0 +1,2 @@
+---
+BUNDLE_BUILD__MYSQL2: "--with-cppflags=-I/usr/local/opt/openssl@3/include --with-ldflags=-L/usr/local/opt/openssl@3/lib"
