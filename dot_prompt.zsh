@@ -13,9 +13,9 @@ resetColor="%{$reset_color%}"
 baseColor="%{$fg[blue]%}"
 dirtyColor="%{$fg[red]%}"
 cleanColor="%{$fg[green]%}"
-pathColor="%{$fg_bold[blue]%}"
-promptColor="%{$fg_bold[blue]%}"
-local logo="$fg_bold[dark]▲$resetColor"
+pathColor="%{$fg[blue]%}"
+promptColor="%{$fg[blue]%}"
+local logo="$fg[dark]▲$resetColor"
 
 __git_branch() {
   $git symbolic-ref --quiet --short HEAD 2>/dev/null \
