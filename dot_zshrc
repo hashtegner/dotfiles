@@ -1,15 +1,16 @@
-# load zsh config
-source ~/.zsh_config.zsh
-source ~/.env.zsh
 
-[ -f ~/.env.local.zsh ] && source ~/.env.local.zsh
+# Homebrew — macOS only
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# load files
-source ~/.aliases.zsh
-source ~/.asdf.zsh
-source ~/.autojump.zsh
-source ~/.fzf.zsh
-source ~/.prompt.zsh
+# Load shared config
+for config in ~/.zsh/{path,env,aliases,completion,tools,prompt}.zsh; do
+  [[ -f "$config" ]] && source "$config"
+done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit && compinit -i
+# Platform-specific aliases
+if   [[ "$OSTYPE" == "darwin"* ]];     then source ~/.zsh/aliases.macos.zsh
+elif [[ "$OSTYPE" == "linux-gnu"* ]];  then source ~/.zsh/aliases.linux.zsh
+fi
+
+# Machine-local overrides (not tracked in repo)
+[[ -f ~/.env.local.zsh ]] && source ~/.env.local.zsh

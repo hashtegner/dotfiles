@@ -1,0 +1,54 @@
+[alias]
+  b = branch
+  ca = commit --amend --no-edit
+  ci = commit -v
+  co = switch
+  dw = diff --word-diff
+  fl = log -p
+  lg = log --oneline --decorate --graph
+  sb = status -sb
+  sh = !git-sh
+  st = status
+  who = shortlog -s --
+  aa = add --all
+  ap = add --patch
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  pf = push --force-with-lease
+  count   = !git shortlog -sn
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPfIKF6czLhqcsCx+fyMyiHUQW0YZJbeYH0OugsfRQ5
+  email = 1260049+hashtegner@users.noreply.github.com
+  name = "Alessandro Tegner"
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+{{ if eq .chezmoi.os "darwin" -}}
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- else if eq .chezmoi.os "linux" -}}
+  program = "/opt/1Password/op-ssh-sign"
+{{- end }}
+
+[commit]
+  gpgsign = true
+
+[init]
+  defaultBranch = main
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+[pull]
+  rebase = true
+  default = current
+
+[help]
+  autocorrect = 1
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[core]
+  editor = code -w

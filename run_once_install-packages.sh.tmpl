@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+DOTFILES="{{ .chezmoi.sourceDir }}"
+
+case "$(uname)" in
+  Darwin) . "$DOTFILES/scripts/install-macos.sh" ;;
+  Linux)  . "$DOTFILES/scripts/install-linux.sh" ;;
+  *)      echo "Unsupported OS: $(uname)" && exit 1 ;;
+esac
