@@ -9,6 +9,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew install \
   bat \
+  bottom \
   chezmoi \
   eza \
   fzf \
