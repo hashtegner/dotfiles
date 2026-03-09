@@ -17,7 +17,11 @@
   count   = !git shortlog -sn
 
 [user]
+{{ if eq .chezmoi.os "darwin" -}}
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPfIKF6czLhqcsCx+fyMyiHUQW0YZJbeYH0OugsfRQ5
+{{ else if eq .chezmoi.os "linux" -}}
+  signingkey = ~/.ssh/id_ed25519.pub
+{{- end }}
   email = 1260049+hashtegner@users.noreply.github.com
   name = "Alessandro Tegner"
 
@@ -27,8 +31,6 @@
 [gpg "ssh"]
 {{ if eq .chezmoi.os "darwin" -}}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-{{- else if eq .chezmoi.os "linux" -}}
-  program = "/opt/1Password/op-ssh-sign"
 {{- end }}
 
 [commit]

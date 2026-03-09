@@ -14,3 +14,7 @@ sudo apt-get install -y \
 
 # mise
 curl https://mise.run | sh
+
+mkdir -p "$HOME/.local/bin"
+
+ln -s /usr/bin/batcat $HOME/.local/bin/bat
