@@ -20,5 +20,6 @@ brew install \
 
 brew install --cask \
   claude-code \
+  font-iosevka-nerd-font \
   ghostty \
   visual-studio-code \

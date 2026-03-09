@@ -1,1 +1,9 @@
 theme = catppuccin-latte.conf
+cursor-style = bar
+
+font-family = Iosevka Nerd Font Mono
+font-size = 16
+
+window-inherit-working-directory = true
+window-padding-x = 20
+window-padding-y = 20
