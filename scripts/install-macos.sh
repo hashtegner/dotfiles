@@ -20,4 +20,5 @@ brew install \
 
 brew install --cask \
   claude-code \
+  ghostty \
   visual-studio-code \
