@@ -17,7 +17,7 @@ sh -c "$(curl -fsLS chezmoi.io/get)"
 2. Setup dotfiles using chezmoi
 
 ```sh
-  chezmoi init https://github.com/username/dotfiles.git
+  chezmoi init https://github.com/hashtegner/dotfiles.git
 ```
 
 
@@ -26,3 +26,7 @@ sh -c "$(curl -fsLS chezmoi.io/get)"
 ```sh
 chezmoi apply -v
 ```
+
+## credits
+
+- [`dot_claude/CLAUDE.md`](dot_claude/CLAUDE.md) is based on [`memory-personal.md`](https://github.com/pcasaretto/nix-home/blob/main/home-manager/modules/common/claude-code/memory-personal.md) from [@pcasaretto](https://github.com/pcasaretto)'s nix-home.
