@@ -38,6 +38,14 @@ dot!  # alias for: chezmoi apply && reload!
 - **`run_once_install-packages.sh.tmpl`** — delegates to `scripts/install-macos.sh` or `scripts/install-linux.sh` based on OS. Re-runs if the referenced script's sha256 changes.
 - **`dot_config/chezmoi/chezmoi.toml`** — chezmoi config; `autoCommit = true` prompts for a commit message on every `chezmoi apply`.
 
+## Installation Scripts
+
+When adding new package installations to `scripts/install-macos.sh` or `scripts/install-linux.sh`, all additions **must be idempotent** — safe to run multiple times without side effects or errors.
+
+- Check if a package/tool is already installed before installing it (e.g., `command -v foo`, `which foo`, or package-manager-specific checks like `brew list foo`)
+- Use package manager flags that handle already-installed state gracefully (e.g., `apt-get install -y` is idempotent; custom curl-pipe-sh scripts usually aren't — wrap them in a guard)
+- Never assume a clean system; assume the script may run on a machine where half the tools are already present
+
 ## Local Overrides
 
 Machine-specific environment variables and secrets go in `~/.env.local.zsh` (sourced by `dot_zshrc` if it exists, not tracked in this repo). Git-specific local settings go in `~/.gitconfig.local` (included by `dot_gitconfig.tmpl` if present).
