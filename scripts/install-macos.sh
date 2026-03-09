@@ -17,4 +17,6 @@ brew install \
   mise \
   zoxide
 
-brew install --cask visual-studio-code
+brew install --cask \
+  claude-code \
+  visual-studio-code \
